@@ -4,14 +4,19 @@ import CourseGoal from "./course-goal";
 
 interface CourseGoalListProps {
     goals: CourseGoalObj[]; // Array<CourseGoalObj>
+    onDeleteGoal: (id: number) => void;
 }
 
-const CourseGoalList: FC<CourseGoalListProps> = ({ goals }) => {
+const CourseGoalList: FC<CourseGoalListProps> = ({ goals, onDeleteGoal }) => {
     return (
         <ul>
             {goals.map((goal) => (
                 <li key={goal.id}>
-                    <CourseGoal title={goal.title}>
+                    <CourseGoal
+                        id={goal.id}
+                        title={goal.title}
+                        onDelete={onDeleteGoal}
+                    >
                         <p>{goal.description}</p>
                     </CourseGoal>
                 </li>

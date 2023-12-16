@@ -19,8 +19,10 @@ import React, { type FC, type PropsWithChildren, type ReactNode } from "react";
 */
 
 interface CourseGoalProps {
+    id: number;
     title: string;
     children: ReactNode;
+    onDelete: (id: number) => void;
 }
 
 /**
@@ -30,14 +32,14 @@ interface CourseGoalProps {
     or function CourseGoal({ title, children }: PropsWithChildren<CourseGoalProps>) {
  */
 
-const CourseGoal: FC<CourseGoalProps> = ({ title, children }) => {
+const CourseGoal: FC<CourseGoalProps> = ({ id, title, children, onDelete }) => {
     return (
         <article>
             <div>
                 <h2>{title}</h2>
                 {children}
             </div>
-            <button>DELETE</button>
+            <button onClick={() => onDelete(id)}>DELETE</button>
         </article>
     );
 };

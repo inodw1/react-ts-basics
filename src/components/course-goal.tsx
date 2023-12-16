@@ -1,4 +1,10 @@
-import React from "react";
+/**
+ * NOTE:
+ * here use `type` keyword with ReactNode
+ * it will help to remove import later
+ * when code run in the browser
+ */
+import React, { type PropsWithChildren, type ReactNode } from "react";
 
 /**
     type CourseGoalProps = {
@@ -6,7 +12,7 @@ import React from "react";
         description: string;
     };
 
-    @IMPORTANT
+    NOTE:
     If you plan on distributing to other developers,
     in which case you might wanna prefer an `interface`
     because it's a bit more extensible
@@ -14,15 +20,22 @@ import React from "react";
 
 interface CourseGoalProps {
     title: string;
-    description: string;
+    children: ReactNode;
 }
 
-function CourseGoal({ title, description }: CourseGoalProps) {
+/**
+    NOTE:
+    also we can use `PropsWithChildren` type
+    type CourseGoalProps = PropsWithChildren<{ title: string }>;
+    or function CourseGoal({ title, children }: PropsWithChildren<CourseGoalProps>) {
+ */
+
+function CourseGoal({ title, children }: CourseGoalProps) {
     return (
         <article>
             <div>
                 <h2>{title}</h2>
-                <p>{description}</p>
+                {children}
             </div>
             <button>DELETE</button>
         </article>

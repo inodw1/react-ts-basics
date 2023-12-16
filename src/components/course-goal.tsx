@@ -4,7 +4,7 @@
  * it will help to remove import later
  * when code run in the browser
  */
-import React, { type PropsWithChildren, type ReactNode } from "react";
+import React, { type FC, type PropsWithChildren, type ReactNode } from "react";
 
 /**
     type CourseGoalProps = {
@@ -30,6 +30,18 @@ interface CourseGoalProps {
     or function CourseGoal({ title, children }: PropsWithChildren<CourseGoalProps>) {
  */
 
+const CourseGoal: FC<CourseGoalProps> = ({ title, children }) => {
+    return (
+        <article>
+            <div>
+                <h2>{title}</h2>
+                {children}
+            </div>
+            <button>DELETE</button>
+        </article>
+    );
+};
+/*
 function CourseGoal({ title, children }: CourseGoalProps) {
     return (
         <article>
@@ -41,5 +53,6 @@ function CourseGoal({ title, children }: CourseGoalProps) {
         </article>
     );
 }
+*/
 
 export default CourseGoal;

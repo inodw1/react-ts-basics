@@ -1,12 +1,19 @@
 import React from "react";
-import CourseGoal from "./components/course-goal";
 import "./index.css";
+import CourseGoal from "./components/course-goal";
+import goalsImg from "./assets/goals.jpg";
+import Header from "./components/header";
 
 function App() {
     return (
-        <CourseGoal title="Learn React + TS">
-            <p> Learn it from the ground up</p>
-        </CourseGoal>
+        <main>
+            <Header image={{ src: goalsImg, alt: "A list of goals" }}>
+                <h1>Your Course Goals</h1>
+            </Header>
+            <CourseGoal title="Learn React + TS">
+                <p> Learn it from the ground up</p>
+            </CourseGoal>
+        </main>
     );
 }
 
